@@ -1,26 +1,20 @@
+import { GlobalCss } from './styles'
 import Header from './components/Header'
-import Produtos from './containers/Produtos'
+import { BrowserRouter } from 'react-router-dom'
 
-import { GlobalStyle } from './styles'
-import { Provider } from 'react-redux'
-import { store } from './store'
-
-export type Produto = {
-  id: number
-  nome: string
-  preco: number
-  imagem: string
-}
+import Rotas from './routes'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <Provider store={store}>
-      <GlobalStyle />
+    <BrowserRouter>
+      <GlobalCss />
       <div className="container">
         <Header />
-        <Produtos />
       </div>
-    </Provider>
+      <Rotas />
+      <Footer />
+    </BrowserRouter>
   )
 }
 

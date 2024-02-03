@@ -1,45 +1,39 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-export const Header = styled.header`
-  background-image: linear-gradient(
-    45deg,
-    ${cores.corPrincipal},
-    ${cores.corSecundaria}
-  );
-  margin: 80px 0;
-  padding: 16px 24px;
+export const HeadesBar = styled.header`
+  background-color: ${cores.cinza};
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 80px;
   display: flex;
-  border-radius: 6px;
   align-items: center;
+  justify-content: space-between;
 
-  h1 {
-    font-size: 18px;
-    flex: 1;
-    font-style: italic;
-    color: ${cores.corFundo};
+  a {
+    color: ${cores.branca};
+    text-decoration: none;
+    font-weight: bold;
   }
 
   div {
     display: flex;
     align-items: center;
-
-    img {
-      width: 18px;
-      margin-right: 8px;
-      margin-left: 16px;
-    }
-
-    span {
-      color: ${cores.corFundo};
-    }
   }
+`
 
-  @media (max-width: 768px) {
-    flex-direction: column;
+export const Links = styled.ul`
+  display: flex;
+  margin-left: 40px;
+`
 
-    div {
-      margin-top: 16px;
-    }
+export const LinkItem = styled.li`
+  margin-right: 16px;
+`
+export const LinkCart = styled.a`
+  display: flex;
+
+  img {
+    margin-left: 16px;
   }
 `

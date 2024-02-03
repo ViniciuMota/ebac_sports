@@ -1,33 +1,31 @@
-import { useSelector } from 'react-redux'
-
-import * as S from './styles'
-
-import cesta from '../../assets/cesta.png'
-import { paraReal } from '../Produto'
-
-import { RootReducer } from '../../store'
-
-const Header = () => {
-  const itens = useSelector((state: RootReducer) => state.carrinho.itens)
-  const itensfav = useSelector((state: RootReducer) => state.favorito.itens)
-
-  const valorTotal = itens.reduce((acc, item) => {
-    acc += item.preco
-    return acc
-  }, 0)
-
-  return (
-    <S.Header>
-      <h1>EBAC Sports</h1>
-      <div>
-        <span>{itensfav.length} favoritos</span>
-        <img src={cesta} />
-        <span>
-          {itens.length} itens, valor total: {paraReal(valorTotal)}
-        </span>
-      </div>
-    </S.Header>
-  )
-}
-
+import { Link } from 'react-router-dom'
+import { HeadesBar, LinkCart, LinkItem, Links } from './styles'
+import logo from '../../assets/images/logo.svg'
+import carrinho from '../../assets/images/carrinho.svg'
+const Header = () => (
+  <HeadesBar>
+    <div>
+      <Link to="/">
+        <img src={logo} alt="EPLAY" />
+      </Link>
+      <nav>
+        <Links>
+          <LinkItem>
+            <Link to="/categories">Categorias</Link>
+          </LinkItem>
+          <LinkItem>
+            <a href="#">Novidades</a>
+          </LinkItem>
+          <LinkItem>
+            <a href="#">Promoções</a>
+          </LinkItem>
+        </Links>
+      </nav>
+    </div>
+    <LinkCart href="#">
+      0 - Produto(s)
+      <img src={carrinho} alt="carrinho" />
+    </LinkCart>
+  </HeadesBar>
+)
 export default Header
